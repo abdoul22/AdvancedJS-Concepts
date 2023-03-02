@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        #result{
+            margin: 10px;
+        }
+        .btn {
+            text-align: center;
+            width: 100px;
+        }
+        .btn-container {
+            width : 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            
+        }
+        #Number1{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="Number1">
+            <h2>First Number</h2>
+            <input type="text" id="firstNumber">
+        </div>
+        <div id="Number2">
+            <h2>First Number</h2>
+            <input type="text" id="secondNumber">
+        </div>
+    </div>
+    <div class="btn-container">
+    <button id="btn">Calculate</button>
+    <div>Result is : <span id="result"></span></div>
+    </div>
+</body>
+<script src="./eventListner.js"></script>
+<script src="./logic.js"></script>
+</html>
