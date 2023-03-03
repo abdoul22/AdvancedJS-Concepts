@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Animal {
+        constructor(inputNom, inputCouleur){
+            this.name = inputNom
+            this.color = inputCouleur
+        }
+        move(){
+            console.log('moving ' + this.name)
+        }
+        
+        jump(){
+            console.log('jumping ' + this.color)
+        }
+    }
+    
+    let lion = new Animal("Sam","Black")
+    let tigre = new Animal("Luim","Gray")
+
+    console.log(lion.name)
+    lion.move()
+    lion.jump()
+    tigre.move()
+    tigre.jump()
+</script>
+</html>
