@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get user infos</title>
+    <style>
+        body{
+            background-color: rgb(203, 236, 221);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            padding: 10px;
+            background-color: rgb(235, 224, 224);
+            height: 100vh;
+        }
+        .sidebar{
+            width: 30%;
+            padding: 5px;
+            margin: 5px;
+            background-color: rgb(234, 227, 241);
+            border-radius:  25%;
+            border: solid rgb(187, 148, 148) 5px;
+
+        }
+        .sidebar :hover{
+            color: rgb(137, 155, 172);
+            height: 100vh;
+        } 
+        .sidebar p {
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+        }
+           #email {
+            font-weight: bold;
+            color: black;
+            display: block;
+            margin: 0 auto;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .sidebar p :hover{
+            border: solid rgb(112, 71, 71) 5px;
+            color: rgb(97, 64, 64);
+        }
+        .content{
+            padding: 10px;
+            width: 66%;
+            color: black;
+            background-color: rgb(251, 250, 253);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+           <div id="clickMe"></div> 
+           <small id="email"></small> 
+        </div>
+        <div class="content">
+            <div id="content"></div>
+            <div id="body"></div>
+        </div>
+    </div>
+</body>
+<script>
+       function getAllUsers(){
+        let request = new XMLHttpRequest()
+        request.open('GET', 'https://jsonplaceholder.typicode.com/users')
+        request.responseType = "json";
+        request.setRequestHeader('content-type','application/json')
+        request.send()
+        request.onload = ()=>{
+            if(request.status >= 200 && request.status < 300){
+                console.log('All Users')
+                users = request.response
+                console.log(typeof users)
+                for (user of users){
+                    document.getElementById('clickMe').innerHTML +=  `<p>${user.name}</p><hr>
+                    `
+                    document.getElementById('email').innerHTML += `<p>${user.email}</p>`
+                }
+            }else{
+                alert('Bad request')
+            }
+        }
+
+    }
+    function getAllPosts(){
+        let request = new XMLHttpRequest()
+        request.open('GET', 'https://jsonplaceholder.typicode.com/posts')
+        request.responseType = "json";
+        request.setRequestHeader('content-type','application/json')
+        request.send()
+        request.onload = ()=>{
+            if(request.status >= 200 && request.status < 300){
+                console.log('All Posts')
+                onePost = request.response
+                console.log(typeof onePost)
+                for (Post of onePost){
+                    document.getElementById('content').innerHTML += `<h3>${onePost.title}</h3>`
+                    document.getElementById('body').innerHTML += `<h3>${onePost.body}</h3>`
+                }
+            }else{
+                alert('Bad request')
+            }
+        }
+
+    }
+    getAllPosts()
+    getAllUsers()
+   /*
+    let btn = document.getElementById('clickMe').addEventListener('click',()=>{
+        let content = document.getElementById('content').innerHTML = 'hello from API'
+    })
+   */
+</script>
+</html>
