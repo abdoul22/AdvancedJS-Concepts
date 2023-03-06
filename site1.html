@@ -1,127 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get user infos</title>
     <style>
-        body{
-            background-color: rgb(203, 236, 221);
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
-        .container{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            color: white;
-            padding: 10px;
-            background-color: rgb(235, 224, 224);
-            height: 100vh;
-        }
-        .sidebar{
-            width: 30%;
-            padding: 5px;
-            margin: 5px;
-            background-color: rgb(234, 227, 241);
-            border-radius:  25%;
-            border: solid rgb(187, 148, 148) 5px;
+      body {
+        background: linear-gradient(45deg, rgb(4, 4, 112), rgb(95, 2, 2));
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        padding: 10px;
+      }
+      .sidebar {
+        width: 30%;
+        padding: 5px;
+        margin: 5px;
+        background-color: rgb(234, 227, 241);
+        border-radius: 25%;
+        border: solid rgb(187, 148, 148) 5px;
+      }
 
-        }
-        .sidebar :hover{
-            color: rgb(137, 155, 172);
-            height: 100vh;
-        } 
-        .sidebar p {
-            font-weight: bold;
-            font-size: 20px;
-            color: black;
-        }
-           #email {
-            font-weight: bold;
-            color: black;
-            display: block;
-            margin: 0 auto;
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-        .sidebar p :hover{
-            border: solid rgb(112, 71, 71) 5px;
-            color: rgb(97, 64, 64);
-        }
-        .content{
-            padding: 10px;
-            width: 66%;
-            color: black;
-            background-color: rgb(251, 250, 253);
-        }
+      #email {
+        font-weight: bold;
+        color: black;
+        display: block;
+        margin: 0 auto;
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+
+      #user-container {
+        width: 90%;
+        height: 100px;
+        margin: 0 auto;
+      }
+      #user.selected {
+        border: solid #ff6200 6px ;
+      }
+      #user {
+        background-color: aliceblue;
+        padding: 10px;
+        padding-left: 20px;
+        border-radius: 100px;
+        font-size: 15px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 15px;
+        cursor: pointer;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0;
+      }
+      #post {
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 15px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 15px;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar">
-           <div id="clickMe"></div> 
-           <small id="email"></small> 
+  </head>
+  <body>
+    <!-- Main Content -->
+    <div style="display: flex">
+      <!-- User Container -->
+      <div style="width: 30%">
+        <!-- User -->
+        <div id="user-container">
+          <div id="user">
+            <h3 >name</h3>
+            <h3>email</h3>
+          </div>
+          <div id="user">
+            <h3>name</h3>
+            <h3>email</h3>
+          </div>
+          <div id="user" class="selected">
+            <h3>name</h3>
+            <h3>email</h3>
+          </div>
+          <div id="user">
+            <h3>name</h3>
+            <h3>email</h3>
+          </div>
         </div>
-        <div class="content">
-            <div id="content"></div>
-            <div id="body"></div>
+        <!-- User -->
+      </div>
+      <!-- //User container// -->
+      <!-- Posts Container  -->
+      <div style="width: 70%; height: 1000px; border-radius: 10px; margin:15px; background-color: rgb(236,236,236) ">
+        <!-- Posts -->
+        <div style="width: 90%; margin: 0 auto">
+          <!-- Post -->
+          <div id="post">
+            <h2>Title</h2>
+            <h2>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Distinctio beatae
+            </h2>
+          </div>
+          <div id="post">
+            <h2>Title</h2>
+            <h2>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Distinctio beatae magni
+            </h2>
+          </div>
+          <div id="post">
+            <h2>Title</h2>
+            <h2>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Distinctio beatae magni q
+            </h2>
+          </div>
+          <div id="post">
+            <h2>Title</h2>
+            <h2>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Distinctio beatae magni
+            </h2>
+          </div>
+          <!-- //Post// -->
         </div>
+        <!-- //Posts// -->
+      </div>
+      <!-- //Posts Container//  -->
     </div>
-</body>
-<script>
-       function getAllUsers(){
-        let request = new XMLHttpRequest()
-        request.open('GET', 'https://jsonplaceholder.typicode.com/users')
-        request.responseType = "json";
-        request.setRequestHeader('content-type','application/json')
-        request.send()
-        request.onload = ()=>{
-            if(request.status >= 200 && request.status < 300){
-                console.log('All Users')
-                users = request.response
-                console.log(typeof users)
-                for (user of users){
-                    document.getElementById('clickMe').innerHTML +=  `<p>${user.name}</p><hr>
-                    `
-                    document.getElementById('email').innerHTML += `<p>${user.email}</p>`
-                }
-            }else{
-                alert('Bad request')
-            }
-        }
+    <!-- //Main Content// -->
 
+    <div></div>
+    <!--  <div></div>
+    <div class="container">
+      <div class="sidebar">
+        <div id="clickMe"></div>
+      </div>
+      <div class="content">
+        <div id="content"></div>
+      </div>
+    </div> -->
+  </body>
+  <script>
+    function getAllUsers() {
+      let request = new XMLHttpRequest();
+      request.open("GET", "https://jsonplaceholder.typicode.com/users");
+      request.responseType = "json";
+      request.setRequestHeader("content-type", "application/json");
+      request.send();
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 300) {
+          document.getElementById("user-container").innerHTML = "";
+          console.log("All Users");
+          users = request.response;
+          console.log(typeof users);
+          console.log(users)
+          for (user of users) {
+            document.getElementById(
+              "user-container"
+            ).innerHTML += `<div id="user">
+            <h3 >${user.name}</h3>
+            <h3>${user.email}</h3>
+          </div>`;
+          }
+        } else {
+          alert("Bad request");
+        }
+      };
     }
-    function getAllPosts(){
-        let request = new XMLHttpRequest()
-        request.open('GET', 'https://jsonplaceholder.typicode.com/posts')
-        request.responseType = "json";
-        request.setRequestHeader('content-type','application/json')
-        request.send()
-        request.onload = ()=>{
-            if(request.status >= 200 && request.status < 300){
-                console.log('All Posts')
-                onePost = request.response
-                console.log(typeof onePost)
-                for (Post of onePost){
-                    document.getElementById('content').innerHTML += `<h3>${onePost.title}</h3>`
-                    document.getElementById('body').innerHTML += `<h3>${onePost.body}</h3>`
-                }
-            }else{
-                alert('Bad request')
-            }
+    function getAllPosts() {
+      let request = new XMLHttpRequest();
+      request.open("GET", "https://jsonplaceholder.typicode.com/posts");
+      request.responseType = "json";
+      request.setRequestHeader("content-type", "application/json");
+      request.send();
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 300) {
+          document.getElementById('post').innerHTML = ''
+          console.log("All Posts");
+          posts = request.response;
+          console.log(typeof posts);
+          console.log('le status ' + request.status )
+          console.log(posts.title);
+          for (post of posts) {
+            document.getElementById(
+              "post"
+            ).innerHTML += `<div><h3 padding-top : 10px; background-color: rgb(236,236,236); >${post.title}</h3>
+                   <hr> <h3 style='margin-bottom: 10px'>${post.body}</h3></div>`;
+          }
+        } else {
+          alert("Bad request");
         }
-
+      };
     }
     getAllPosts()
     getAllUsers()
-   /*
+    /*
     let btn = document.getElementById('clickMe').addEventListener('click',()=>{
         let content = document.getElementById('content').innerHTML = 'hello from API'
     })
    */
-</script>
+  </script>
 </html>
