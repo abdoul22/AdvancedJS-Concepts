@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Promeses</h1>
+    <h3 id="title1" style="visibility: hidden">Title1</h3>
+    <h3 id="title2" style="visibility: hidden">title2</h3>
+    <h3 id="title3" style="visibility: hidden">title3</h3>
+    <h3 id="title4" style="visibility: hidden">title4</h3>
+  </body>
+  <script>
+    setTimeout(function () {
+      document.getElementById("title1").style.visibility = "visible";
+      setTimeout(function () {
+        document.getElementById("title2").style.visibility = "visible";
+        setTimeout(function () {
+          document.getElementById("title3").style.visibility = "visible";
+          setTimeout(function () {
+            document.getElementById("title4").style.visibility = "visible";
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  </script>
+</html>
